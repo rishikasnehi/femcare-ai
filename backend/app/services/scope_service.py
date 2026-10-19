@@ -7,7 +7,9 @@ HEALTH_KEYWORDS = {
         "period", "menstrual", "menstruation", "menstruate",
         "menstrual cycle", "cramps", "bleeding", "pms",
         "missed period", "irregular period", "heavy period",
-        "tampon", "sanitary pad", "period pain",
+        "tampon", "sanitary pad", "period pain", "bloating during periods", 
+        "period bloating","bloating during menstruation", "bloated during my period",
+        "bloated stomach during my periods",
     },
     "pcos_pcod": {
         "pcos", "pcod", "polycystic ovary",
@@ -24,7 +26,8 @@ HEALTH_KEYWORDS = {
     },
     "weight_and_metabolism": {
         "weight gain", "weight loss", "metabolism",
-        "bloating", "water retention",
+        "bloating", "water retention", "bloated",
+        "bloated stomach",
     },
     "vaginal_and_reproductive_health": {
         "vagina", "vaginal", "vulva", "vulvar",

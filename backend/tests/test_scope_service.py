@@ -19,6 +19,7 @@ from app.services.scope_service import classify_scope
         "What are the symptoms of iron deficiency?",
         "What is postpartum recovery?",
         "How does sleep affect women's health?",
+        "i am having bloated stomach during my periods",
     ],
 )
 def test_supported_health_topics(message):
