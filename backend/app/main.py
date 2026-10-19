@@ -1,12 +1,15 @@
 
 from fastapi import FastAPI
 
+from app.api.chat import router as chat_router
+
 app = FastAPI(
     title="FemCare AI API",
     description="Backend API for the FemCare AI women's health education chatbot",
-    version="0.1.0",
+    version="0.2.0",
 )
 
+app.include_router(chat_router)
 
 @app.get("/")
 def root():
