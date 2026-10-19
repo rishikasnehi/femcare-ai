@@ -5,6 +5,7 @@ from app.prompts.femcare_prompt import FEMCARE_SYSTEM_PROMPT
 from app.schemas.chat import ChatRequest, ChatResponse
 from app.services.gemini_service import generate_response
 from app.services.scope_service import classify_scope
+from app.services.safety_service import detect_urgent_symptoms
 
 router = APIRouter(
     prefix="/api/chat",
@@ -28,7 +29,21 @@ def chat(request: ChatRequest):
             )
         )
 
-    # Step 2: Generate a response only for accepted questions
+    # Step 2: Check for potentially urgent symptoms
+    urgent_symptoms = detect_urgent_symptoms(request.message)
+
+    if urgent_symptoms:
+        return ChatResponse(
+            reply=(
+                "Your symptoms may require urgent medical attention. "
+                "Please seek medical care immediately. If you are experiencing "
+                "difficulty breathing, fainting, severe pain, or uncontrolled "
+                "bleeding, contact your local emergency service. "
+                "This chatbot cannot assess emergencies."
+            )
+        )
+
+    # Step 3: Generate a response only for accepted questions
     try:
         reply = generate_response(
             prompt=request.message,
