@@ -51,7 +51,9 @@ def chat(request: ChatRequest):
         ) from exc
 
     except Exception as exc:
-        print(f"Chat API error: {type(exc).__name__}")
+        import traceback
+
+        traceback.print_exc()
 
         raise HTTPException(
             status_code=502,

@@ -8,11 +8,8 @@ from app.config import GEMINI_API_KEY, MODEL_NAME
 def generate_response(
     prompt: str,
     temperature: float = 0.3,
+    system_instruction: str | None = None,
 ) -> str:
-    """
-    Generate a response from Gemini for a given prompt.
-    """
-
     if not GEMINI_API_KEY:
         raise RuntimeError(
             "GEMINI_API_KEY is missing. "
@@ -31,6 +28,7 @@ def generate_response(
         contents=prompt,
         config=types.GenerateContentConfig(
             temperature=temperature,
+            system_instruction=system_instruction,
         ),
     )
 
